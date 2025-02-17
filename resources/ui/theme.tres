@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://diro3l0vana5k"]
+
+[resource]
+Label/font_sizes/font_size = 35
+Label/fonts/font = null
+Label/styles/normal = null
+TextEdit/font_sizes/font_size = 16
