@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbwohp47jotdw"]
+[gd_scene load_steps=5 format=3 uid="uid://dbwohp47jotdw"]
 
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_rgjr3"]
 [ext_resource type="Theme" uid="uid://diro3l0vana5k" path="res://resources/ui/theme.tres" id="1_xjgxr"]
+[ext_resource type="PackedScene" uid="uid://cb3uxsmykjtri" path="res://scenes/main_menu/player_slot.tscn" id="3_n2kgm"]
+[ext_resource type="Script" path="res://scenes/main_menu/lobby.gd" id="3_rfl4m"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,44 +12,171 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rgjr3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="LogScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LogScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = -61.5
-offset_right = 87.0
-offset_bottom = 61.5
+offset_left = -279.0
+offset_top = -173.0
+offset_right = 279.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="LogScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 22
 theme_override_constants/margin_right = 22
-theme_override_constants/margin_bottom = 22
+theme_override_constants/margin_bottom = 80
 
-[node name="username_label" type="Label" parent="VBoxContainer/MarginContainer"]
+[node name="username_label" type="Label" parent="LogScreen/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_xjgxr")
+theme_override_font_sizes/font_size = 66
 text = "Battle simulator
 "
 horizontal_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="MarginContainer3" type="MarginContainer" parent="LogScreen/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_xjgxr")
-placeholder_text = "Enter your username"
-scroll_fit_content_height = true
+theme_override_constants/margin_left = 133
+theme_override_constants/margin_right = 133
+theme_override_constants/margin_bottom = 12
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="UsernameInput" type="LineEdit" parent="LogScreen/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+placeholder_text = "Username"
+alignment = 1
+max_length = 12
+
+[node name="MarginContainer2" type="MarginContainer" parent="LogScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="CreateLobby" type="Button" parent="LogScreen/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Create Lobby"
+
+[node name="MarginContainer4" type="MarginContainer" parent="LogScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="JoinLobby" type="Button" parent="LogScreen/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Join Lobby
+"
+
+[node name="Lobby" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_rfl4m")
+
+[node name="PlayerSlotList" type="VBoxContainer" parent="Lobby"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.396
+anchor_bottom = 0.5
+offset_top = -306.0
+offset_right = -0.192017
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="PlayerSlot" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot2" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot3" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot4" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot5" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot6" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot7" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="PlayerSlot8" parent="Lobby/PlayerSlotList" instance=ExtResource("3_n2kgm")]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lobby"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -178.0
+offset_right = -70.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="StartGame" type="Button" parent="Lobby/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_xjgxr")
-text = "Play
+theme_override_font_sizes/font_size = 33
+text = "Start Lobby
 "
+
+[node name="LeaveLobby" type="Button" parent="Lobby/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_xjgxr")
+theme_override_font_sizes/font_size = 33
+text = "Leave Lobby
+"
+
+[node name="UpdateLobbyUITimer" type="Timer" parent="Lobby"]
+wait_time = 0.2
+autostart = true
+
+[connection signal="pressed" from="LogScreen/VBoxContainer/MarginContainer2/CreateLobby" to="." method="_on_create_lobby_pressed"]
+[connection signal="pressed" from="LogScreen/VBoxContainer/MarginContainer4/JoinLobby" to="." method="_on_join_lobby_pressed"]
+[connection signal="pressed" from="Lobby/VBoxContainer/StartGame" to="Lobby" method="_on_start_game_pressed"]
+[connection signal="pressed" from="Lobby/VBoxContainer/LeaveLobby" to="Lobby" method="_on_leave_lobby_pressed"]
+[connection signal="timeout" from="Lobby/UpdateLobbyUITimer" to="Lobby" method="update_ui"]

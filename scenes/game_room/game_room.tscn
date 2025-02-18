@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3iymkivk358d"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/network_manager.gd" id="1_47tki"]
+[ext_resource type="Script" path="res://scenes/game_room/scene_manager.gd" id="3_bdp30"]
+
+[node name="GameRoom" type="Node2D"]
+script = ExtResource("3_bdp30")
+
+[node name="NetworkManager" type="Node" parent="."]
+script = ExtResource("1_47tki")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="NetworkManager"]
+_spawnable_scenes = PackedStringArray("res://scenes/Player/player.tscn")
+spawn_path = NodePath(".")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NetworkManager2" type="Node" parent="."]
+script = ExtResource("1_47tki")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="NetworkManager2"]
+spawn_path = NodePath(".")
